@@ -16,7 +16,7 @@ public class DragonMove : MonoBehaviour // <-- MonoBehaviour allows Unity to att
     public Slider healthBar; // <-- Brings health bar asset
     public TextMeshProUGUI youWin; // <-- Brings 'you win' text object
     public AudioSource winSound; // <-- Audio source for the win sound
-    public AudioSource bgMusic;
+    public AudioSource bgMusic; 
 
     // Timer Variables
     private float ratTimer = 0; // <-- Timer for spawning rats

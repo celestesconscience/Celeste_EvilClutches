@@ -1498,6 +1498,7 @@ MonoBehaviour:
   speed: 5
   goingUp: 1
   dragonHealth: 100
+  player: {fileID: 2006683662}
   healthBar: {fileID: 1254285137}
   youWin: {fileID: 530907592}
   winSound: {fileID: 530907594}
