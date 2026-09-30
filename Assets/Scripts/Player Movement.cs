@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour // <-- MonoBehaviour allows Unity to
     // Import Text and Sound
     public TextMeshProUGUI scoreBox; // <-- Reference to the score display UI element
     public TextMeshProUGUI scoreChange; // <-- Shows score points added or lost
+    public GameObject gameOverUI;
     public TextMeshProUGUI youLose; // <-- Brings 'you lose' text object
     public AudioSource loseSound; // <-- Audio source for the lose sound
     public AudioSource bgMusic; 
@@ -25,7 +26,8 @@ public class PlayerMovement : MonoBehaviour // <-- MonoBehaviour allows Unity to
     // Start is called when game starts
     void Start()
     {
-        youLose.enabled = false;
+        gameOverUI.SetActive(false);
+        youLose.gameObject.SetActive(false);
         scoreBox.text = "Score: " + scoreVal; // <-- Makes sure when game start, score text is matching score value
         scoreChange.text = "";
     }
@@ -119,10 +121,13 @@ public class PlayerMovement : MonoBehaviour // <-- MonoBehaviour allows Unity to
             // When player score is 0, lose stuff happens
             if(scoreVal <= 0)
             {
-                youLose.enabled = true; // <-- Show 'You Lose' text
+                gameOverUI.SetActive(true);
+                youLose.gameObject.SetActive(true);
+
                 bgMusic.Stop();  // <-- Stop the background music when the player loses
                 loseSound.Play(); // <-- Play sound
                 dragon.enabled = false; // <-- Dragon Move script stops, dragon stops shooting
+
                 Destroy(gameObject,.1f); // <-- Destroy the Player 
             }
         } 

@@ -14,6 +14,7 @@ public class DragonMove : MonoBehaviour // <-- MonoBehaviour allows Unity to att
 
     // Import Text and Sound and UI
     public Slider healthBar; // <-- Brings health bar asset
+    public GameObject gameOverUI;
     public TextMeshProUGUI youWin; // <-- Brings 'you win' text object
     public AudioSource winSound; // <-- Audio source for the win sound
     public AudioSource bgMusic; 
@@ -32,7 +33,8 @@ public class DragonMove : MonoBehaviour // <-- MonoBehaviour allows Unity to att
     void Start()
     {
         healthBar.value = dragonHealth;
-        youWin.enabled = false;
+        gameOverUI.SetActive(false);
+        youWin.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -89,10 +91,13 @@ public class DragonMove : MonoBehaviour // <-- MonoBehaviour allows Unity to att
     // When dragon health is 0, win stuff happens
         if(dragonHealth <= 0)
         {
-            youWin.enabled = true;// <-- Show 'You Win' text
+            gameOverUI.SetActive(true);
+            youWin.gameObject.SetActive(true);
+
             bgMusic.Stop(); // <-- Stop the background music when the dragon is defeated
             winSound.Play(); // <-- Play sound
             player.enabled = false; // <-- Disable the PlayerMovement script so the player can no longer move or shoot
+
             Destroy(gameObject,.1f); // <-- Destroy the Dragon 
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine; //Using Unity's Programming tools
 public class ControlsMenu : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject
 {
     // Controls Panel
-    public GameObject controlsPanel; // <-- Reference to the Controls Panel GameObject
+    public GameObject controlsMenu; // <-- Reference to the Controls Menu GameObject
 
     // Toggles the visibility of the Controls Panel
     public void ControlsMenuMethod()
@@ -13,9 +13,9 @@ public class ControlsMenu : MonoBehaviour // <-- MonoBehaviour allows Unity to a
         // activeSelf checks if the panel is currently active (true) or inactive (false)
         // ! means "Not", so it changes true to false or false to true
         // Basically, set controls panel((!opposite)controlspanel.whatever state)
-        controlsPanel.SetActive(!controlsPanel.activeSelf);
+        controlsMenu.SetActive(!controlsMenu.activeSelf);
 
-        if(controlsPanel.activeSelf)
+        if(controlsMenu.activeSelf)
         {
             Time.timeScale = 0;
         }
