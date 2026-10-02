@@ -1,7 +1,7 @@
 using UnityEngine; //Using Unity's Programming tools
 
 //ControlsMenu Class and Functions
-public class ControlsMenu : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject
+public class EC_ControlsMenu : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject
 {
     // Controls Panel
     public GameObject controlsMenu; // <-- Reference to the Controls Menu GameObject

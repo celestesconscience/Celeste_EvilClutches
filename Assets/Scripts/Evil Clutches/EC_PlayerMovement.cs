@@ -2,13 +2,13 @@ using UnityEngine; //Using Unity's Programming tools
 using TMPro;
 
 //PlayerMovement Class and Functions
-public class PlayerMovement : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject
+public class EC_PlayerMovement : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject
 {
     // Variables
     public float speed = 4; // <-- Speed of the player's movement
     public int scoreVal = 0; // <-- Player's score
     private float scoreChangeTimer = 0;
-    public DragonMove dragon;
+    public EC_DragonMove dragon;
 
     // Import Text and Sound
     public TextMeshProUGUI scoreBox; // <-- Reference to the score display UI element
@@ -98,19 +98,19 @@ public class PlayerMovement : MonoBehaviour // <-- MonoBehaviour allows Unity to
     {
         if(collision.gameObject.CompareTag("Projectile")) // <-- Check if the collided object has the tag "Projectile"
         {      
-            if(collision.gameObject.GetComponent<ProjectileMove>() != null) // <-- Check if the collided object has a ProjectileMove component
+            if(collision.gameObject.GetComponent<EC_ProjectileMove>() != null) // <-- Check if the collided object has a ProjectileMove component
             {
-                scoreVal += collision.gameObject.GetComponent<ProjectileMove>().points; // <-- Add the points from the projectile to the player's score
+                scoreVal += collision.gameObject.GetComponent<EC_ProjectileMove>().points; // <-- Add the points from the projectile to the player's score
                 scoreBox.text = "Score: " + scoreVal; // <-- Update the score display with the new score
                 print(scoreVal); // <-- Print the new score to the console for debugging purposes
 
-                if(collision.gameObject.GetComponent<ProjectileMove>().points >= 0)
+                if(collision.gameObject.GetComponent<EC_ProjectileMove>().points >= 0)
                 {
-                    scoreChange.text = "+" + collision.gameObject.GetComponent<ProjectileMove>().points;
+                    scoreChange.text = "+" + collision.gameObject.GetComponent<EC_ProjectileMove>().points;
                 }                
                 else
                 {
-                    scoreChange.text = "" + collision.gameObject.GetComponent<ProjectileMove>().points;
+                    scoreChange.text = "" + collision.gameObject.GetComponent<EC_ProjectileMove>().points;
                 }
 
                 scoreChangeTimer = 1.0f; // <-- Reset the score change timer to 1 seconds

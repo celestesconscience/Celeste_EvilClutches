@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ProjectileMove : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject
+public class EC_ProjectileMove : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject
 {
 
     public float speed = 6; // <-- Speed of the projectile's movement

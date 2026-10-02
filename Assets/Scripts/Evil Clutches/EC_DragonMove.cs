@@ -3,14 +3,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //DragonMove Class and Functions
-public class DragonMove : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject. 
+public class EC_DragonMove : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject. 
                                        // class acts as a container for the code that will control the dragon's movement and behavior
 {
     // Variables
     public float speed = 5; // <-- Speed of the dragon's movement
     public bool goingUp = true; // <-- Direction of the dragon's movement
     public int dragonHealth = 100; // <-- Health variable for dragon
-    public PlayerMovement player; // <-- Reference to the Player's PlayerMovement component, assigned in the Unity Inspector
+    public EC_PlayerMovement player; // <-- Reference to the Player's PlayerMovement component, assigned in the Unity Inspector
 
     // Import Text and Sound and UI
     public Slider healthBar; // <-- Brings health bar asset
@@ -81,9 +81,9 @@ public class DragonMove : MonoBehaviour // <-- MonoBehaviour allows Unity to att
     {
         if(collision.gameObject.CompareTag("PlayerProjectile")) // <-- Check if the collided object has the tag "PlayerProjectile"
         {      
-            if(collision.gameObject.GetComponent<BatSpitMove>() != null) // <-- Check if the collided object has a BatSpitMove component
+            if(collision.gameObject.GetComponent<EC_PlayerProjectileMove>() != null) // <-- Check if the collided object has a BatSpitMove component
             {
-                dragonHealth -= collision.gameObject.GetComponent<BatSpitMove>().damage; // <-- Subtract the damage dealt by the bat spit projectile from the dragon's health
+                dragonHealth -= collision.gameObject.GetComponent<EC_PlayerProjectileMove>().damage; // <-- Subtract the damage dealt by the bat spit projectile from the dragon's health
                 healthBar.value = dragonHealth; // <-- Attaches the dragon health variable to the health bar
                 Destroy(collision.gameObject); // <-- Destroy the collided object (the bat spit projectile) after it has been processed
             }
