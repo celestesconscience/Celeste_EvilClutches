@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// EnemyBullet Class and Functions
 public class Galaga_EnemyBullet : MonoBehaviour
 {
     // Variables
@@ -12,6 +13,14 @@ public class Galaga_EnemyBullet : MonoBehaviour
         if(transform.position.y < -6) // <-- Check if the projectile has moved off the bottom of the screen
         {
             Destroy(gameObject); // <-- Destroy the projectile GameObject to free up memory and resources
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("PlayerBullet") || collision.gameObject.CompareTag("GalagaPlayer"))
+        {
+            Destroy(gameObject);
         }
     }
 }

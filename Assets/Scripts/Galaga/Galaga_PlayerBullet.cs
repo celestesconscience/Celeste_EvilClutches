@@ -1,6 +1,6 @@
 using UnityEngine; //Using Unity's Programming tools
 
-// Galaga_PlayerBullet Class and Functions
+// PlayerBullet Class and Functions
 public class Galaga_PlayerBullet : MonoBehaviour // <-- MonoBehaviour allows Unity to attach script to a GameObject
 {
 

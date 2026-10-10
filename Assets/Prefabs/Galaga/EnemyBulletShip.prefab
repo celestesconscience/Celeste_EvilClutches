@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3426398502393749763}
   m_Layer: 0
   m_Name: EnemyBulletShip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   enemyBullet: {fileID: 3233801330024808344, guid: 1938deb002261450f8beff0dade1f253, type: 3}
   enemybulletTimer: 0
   enemybulletWait: 2
+  explosion: {fileID: 6677845051465136476, guid: 6884418d1d49b46c59d5c9aab6c14943, type: 3}
 --- !u!61 &3787167655153114080
 BoxCollider2D:
   m_ObjectHideFlags: 0
