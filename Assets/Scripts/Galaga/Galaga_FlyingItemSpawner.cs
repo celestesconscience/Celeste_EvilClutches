@@ -4,8 +4,8 @@ using UnityEngine;
 public class Galaga_FlyingItemSpawner : MonoBehaviour
 {
     // Spawner References
-    public GameObject powerUp;
     public GameObject powerUpWave;
+    public GameObject penaltyItemWave;
     public Transform leftSpawner;
     public Transform rightSpawner;
 
@@ -26,14 +26,30 @@ public class Galaga_FlyingItemSpawner : MonoBehaviour
             itemTimer = 0; // Reset timer back to 0
             powerUpActive = true;
 
-            // Randomly choose left or right
+            // Randomly choose PowerUp or Penalty Item
             if(Random.Range(0, 2) == 0)
             {
-                Instantiate(powerUpWave, leftSpawner.position, Quaternion.identity);
+                // Spawn PowerUp
+                if(Random.Range(0, 2) == 0)
+                {
+                    Instantiate(powerUpWave, leftSpawner.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(powerUpWave, rightSpawner.position, Quaternion.identity);
+                }
             }
             else
             {
-                Instantiate(powerUpWave, rightSpawner.position, Quaternion.identity);
+                // Spawn Penalty Item
+                if(Random.Range(0, 2) == 0)
+                {
+                    Instantiate(penaltyItemWave, leftSpawner.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(penaltyItemWave, rightSpawner.position, Quaternion.identity);
+                }
             }
         }
     }

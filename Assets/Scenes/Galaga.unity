@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926cf22c501074d7d886c4108e2f04a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Galaga_FlyingItemSpawner
-  powerUp: {fileID: 6277216476817505994, guid: 1d018fd73be4544e99709a6de1639d4b, type: 3}
   powerUpWave: {fileID: 2283093416095660516, guid: a2d8f02cc5e7244cfa7a07a68c7d653b, type: 3}
+  penaltyItemWave: {fileID: 7426351928097617456, guid: 9f55fe5ab09f2438fb94f544ba8353bd, type: 3}
   leftSpawner: {fileID: 96474426}
   rightSpawner: {fileID: 598218217}
   itemTimer: 0
@@ -2273,6 +2273,7 @@ MonoBehaviour:
   pauseOverlay: {fileID: 1032538747}
   controlsOverlay: {fileID: 1579715382}
   gameOverOverlay: {fileID: 610325947}
+  gameOverScoreText: {fileID: 1530726478}
   bgMusic: {fileID: 631562755}
   gameOverSound: {fileID: 520457578}
 --- !u!4 &793173635
@@ -2638,6 +2639,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GalagaPlayerMovement
   speed: 4
   scoreVal: 0
+  normalScoreColor: {r: 1, g: 0.84313726, b: 0, a: 1}
+  penaltyScoreColor: {r: 0.8396226, g: 0, b: 0, a: 1}
   rapidFireDuration: 10
   rapidFireTimer: 0
   rapidFireCooldown: 0.1
@@ -3022,6 +3025,9 @@ MonoBehaviour:
   - {fileID: 1774649785639697654, guid: 4d72571902df94f6abff6b1a446eb184, type: 3}
   waveTimer: 0
   waveWait: 3
+  heartItem: {fileID: 5577466666278728608, guid: 9efb19260275a4a9b99d4a118fe9babe, type: 3}
+  heartTimer: 0
+  heartWait: 10
 --- !u!1 &1032538747
 GameObject:
   m_ObjectHideFlags: 0
@@ -4349,7 +4355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: 'Score:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
