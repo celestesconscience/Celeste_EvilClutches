@@ -50,6 +50,7 @@ public class Galaga_BulletShip : MonoBehaviour
             {
                 player.GetComponent<Galaga_PlayerMovement>().scoreVal += points; // <-- Add points to the player's score when this ship is destroyed
                 player.GetComponent<Galaga_PlayerMovement>().scoreText.text = "Score: " + player.GetComponent<Galaga_PlayerMovement>().scoreVal; // <-- Update the score text to display the new score
+                player.GetComponent<Galaga_PlayerMovement>().ShowScoreChange(points); // Shows the amount of points just given to player
                 
                 Destroy(collision.gameObject); // <-- Destory bullet
             }

@@ -10,8 +10,8 @@ public class Galaga_FlyingItemSpawner : MonoBehaviour
     public Transform rightSpawner;
 
     // Spawning Variables
-    public float itemTimer = 0f;
-    public float itemWait = 15f;
+    public float itemTimer = 0f; // What timer starts at
+    public float itemWait = 15f; // What time has to get to before spawning in/How long it has to wait
     public bool powerUpActive = false; // Checks if power up is flying around so another doesn't spawn too fast
 
 
@@ -43,5 +43,6 @@ public class Galaga_FlyingItemSpawner : MonoBehaviour
     {
         powerUpActive = false; // If power up is not active
         itemTimer = 0; // start countdown over
+        // For when the power up flies off screen and player misses trying to get it
     }
 }

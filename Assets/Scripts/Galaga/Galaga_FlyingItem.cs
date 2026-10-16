@@ -58,10 +58,12 @@ public class Galaga_FlyingItem : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D collision) // When another 2d colliders enter objects trigger
+    // Collision logic for Power Up
+    public void OnTriggerEnter2D(Collider2D collision) // When another 2D colliders enter objects trigger
     {
         if(collision.gameObject.CompareTag("PlayerBullet") || collision.gameObject.CompareTag("GalagaPlayer")) // Check if it was the player or their bullet
         {
+            // Destroys bullet
             if(collision.gameObject.CompareTag("PlayerBullet"))
             {
                 Destroy(gameObject);
@@ -69,6 +71,7 @@ public class Galaga_FlyingItem : MonoBehaviour
 
             player.GetComponent<Galaga_PlayerMovement>().ActivateRapidFire(); // Gets player's script and activates RF method when hit by player
 
+            // Explosion animation for power up
             GameObject temp = Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(temp, 1.0f);
 
