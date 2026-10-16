@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5099400180745187253}
   - component: {fileID: 2399382486311492055}
   - component: {fileID: 7383531099906267961}
+  - component: {fileID: 3862861285641592257}
   m_Layer: 0
   m_Name: PowerUp
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 848.7338, y: 613.9537, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -190,3 +191,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3862861285641592257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6277216476817505994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b12e90f6365427e97332b2fb90bd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Galaga_FlyingItem
+  explosion: {fileID: 6677845051465136476, guid: 6884418d1d49b46c59d5c9aab6c14943, type: 3}
+  speed: 6
