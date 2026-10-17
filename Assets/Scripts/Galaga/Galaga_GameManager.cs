@@ -107,7 +107,7 @@ public class Galaga_GameManager : MonoBehaviour
     public void GameOverMethod()
     {
         // Update the Game Over score with the player's final score
-        gameOverScoreText.text = "Score: " + GameObject.Find("Player").GetComponent<Galaga_PlayerMovement>().scoreVal;
+        gameOverScoreText.text = "SCORE: " + GameObject.Find("Player").GetComponent<Galaga_PlayerMovement>().scoreVal;
         
         // Show the Game Over Overlay
         gameOverOverlay.SetActive(true);

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8451782639408672729}
-  - component: {fileID: 68707435251402625}
   - component: {fileID: 8999072831602832365}
   - component: {fileID: 833838735019956117}
+  - component: {fileID: 3846992603545656148}
   m_Layer: 0
   m_Name: HeartItemWave
   m_TagString: Untagged
@@ -35,23 +35,6 @@ Transform:
   - {fileID: 172515378134483388}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &68707435251402625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5577466666278728608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b12e90f6365427e97332b2fb90bd72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Galaga_FlyingItem
-  explosion: {fileID: 6677845051465136476, guid: 6884418d1d49b46c59d5c9aab6c14943, type: 3}
-  healing: {fileID: 4463200301777111834, guid: f874f99ce04b549a9a75cc66d0dc0d70, type: 3}
-  speed: 3
-  isPenaltyItem: 0
-  isHeart: 1
 --- !u!50 &8999072831602832365
 Rigidbody2D:
   serializedVersion: 5
@@ -114,7 +97,22 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.24989271
+  m_Radius: 0.5
+--- !u!114 &3846992603545656148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5577466666278728608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6362c9bcead6431aace99b6f70964ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Galaga_HeartItem
+  healing: {fileID: 4463200301777111834, guid: f874f99ce04b549a9a75cc66d0dc0d70, type: 3}
+  heartCollectedSound: {fileID: 8300000, guid: 2326ccfdd72b4489ab52a5178bf9a61f, type: 3}
+  speed: 3
 --- !u!1001 &4744199707702565785
 PrefabInstance:
   m_ObjectHideFlags: 0

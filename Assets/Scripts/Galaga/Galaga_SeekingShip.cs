@@ -44,7 +44,7 @@ public class Galaga_SeekingShip : MonoBehaviour
             if(collision.gameObject.CompareTag("PlayerBullet")) // <-- Check if the collision is with a player bullet
             {
                 player.GetComponent<Galaga_PlayerMovement>().scoreVal += points; // <-- Add points to the player's score when this ship is destroyed
-                player.GetComponent<Galaga_PlayerMovement>().scoreText.text = "Score: " + player.GetComponent<Galaga_PlayerMovement>().scoreVal; // <-- Update the score text to display the new score
+                player.GetComponent<Galaga_PlayerMovement>().scoreText.text = "SCORE: " + player.GetComponent<Galaga_PlayerMovement>().scoreVal; // <-- Update the score text to display the new score
                 player.GetComponent<Galaga_PlayerMovement>().ShowScoreChange(points); // Shows the amount of points just given to player
                 
                 Destroy(collision.gameObject); // <-- Destory bullet

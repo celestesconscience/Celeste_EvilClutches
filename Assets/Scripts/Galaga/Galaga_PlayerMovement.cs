@@ -16,11 +16,10 @@ public class Galaga_PlayerMovement : MonoBehaviour
     private float scoreChangeDuration = 1.0f;
 
     // Score Change Text Varibles
-    private float normalScoreSize = 30f;
-    private float penaltyScoreSize = 45f;
+    private float normalScoreSize = 40f;
+    private float penaltyScoreSize = 50f;
     public Color normalScoreColor = Color.yellow;
     public Color penaltyScoreColor = Color.red;
-
 
     // Rapid Fire Variables
     private bool rapidFire = false; // Stores whether Rapid Fire is currently active.
@@ -58,9 +57,12 @@ public class Galaga_PlayerMovement : MonoBehaviour
     // Flying Item Spawner
     private Galaga_FlyingItemSpawner spawner;
 
+    // Audio
+    public AudioClip lifeLostSound;
+
     void Start()
     {
-        scoreText.text = "Score: " + scoreVal; // <-- Initialize the score text to display the player's score at the start of the game
+        scoreText.text = "SCORE: " + scoreVal; // <-- Initialize the score text to display the player's score at the start of the game
         scoreChange.text = "";
 
         spawner = GameObject.Find("FlyingItemSpawner").GetComponent<Galaga_FlyingItemSpawner>();
@@ -242,6 +244,9 @@ public class Galaga_PlayerMovement : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             livesremaining -= 1;
+
+            // Play lost lives sound
+            AudioSource.PlayClipAtPoint(lifeLostSound, transform.position, 2f);
 
             if(livesremaining <= 0)
             {
