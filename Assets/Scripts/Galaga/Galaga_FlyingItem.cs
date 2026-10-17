@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.Android;
 
 // FlyingItem Class and Functions
 public class Galaga_FlyingItem : MonoBehaviour
@@ -6,7 +7,6 @@ public class Galaga_FlyingItem : MonoBehaviour
     // gameObject References
     private GameObject player;
     public GameObject explosion;
-    public GameObject healing;
 
     // Audio
     public AudioClip penaltySound;
@@ -19,12 +19,6 @@ public class Galaga_FlyingItem : MonoBehaviour
 
     // Stores which direction the item should move
     private bool movingRight;
-
-    // Determines whether the flying item is a PowerUp or Penalty Item
-    public bool isPenaltyItem = false;
-
-    // Determines whether this flying item is a Heart
-    public bool isHeart = false;
 
     // Start is called once when the item is created
     void Start()
@@ -47,43 +41,32 @@ public class Galaga_FlyingItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Flying Item Movement
-        if(isHeart)
+        if(movingRight) // If the power up is spawned on the left
         {
-            // Move Heart Downward
-            transform.Translate(-transform.up * speed * Time.deltaTime);
-        }
-
-        else if(movingRight) // If the power up is spawned on the left
-        {
-            // Move Power/Penalty to the right
+            // Move to the right
             transform.Translate(transform.right * speed * Time.deltaTime);
         }
 
-        else
+        else // If the power up is spawned on the right
         {
-            // Move Power/Penalty to the left
+            // Move to the left
             transform.Translate(-transform.right * speed * Time.deltaTime);
         }
 
         // Destroy when the item goes off screen
-        if(transform.position.x > 12 || transform.position.x < -12 || transform.position.y < -6)
+        if(transform.position.x > 12 || transform.position.x < -12)
         {
-            // Reset the side-flying item spawner only for Power Ups/Penalty Items
-            if(!isHeart)
-            {
-                spawner.ResetPowerUp();
-            }
-            
-            Destroy(gameObject);  
+            spawner.ResetPowerUp();
+            Destroy(gameObject);
         }
     }
 
-    // Collision logic for  Flying Item
+    // Collision logic for Power Up
     public void OnTriggerEnter2D(Collider2D collision) // When another 2D colliders enter objects trigger
     {
         if(collision.gameObject.CompareTag("PlayerBullet") || collision.gameObject.CompareTag("GalagaPlayer")) // Check if it was the player or their bullet
         {
+<<<<<<< HEAD
             if(collision.gameObject.CompareTag("PlayerBullet"))
             {
                 // Destroys player bullet
@@ -94,20 +77,21 @@ public class Galaga_FlyingItem : MonoBehaviour
                 {
                     return; // Stops here so the Heart is not destroyed or collected
                 }
+=======
+            // Destroys bullet
+            if(collision.gameObject.CompareTag("PlayerBullet"))
+            {
+                Destroy(gameObject);
+>>>>>>> parent of 374544d (PowerUp, Penalty Item, and Heart/Add Life Item + Polishes)
             }
 
-            // Check which type of flying item was collected
-            if(isHeart)
-            {
-                // Heart gives the player one extra life
-                player.GetComponent<Galaga_PlayerMovement>().AddLife();
-            }
+            player.GetComponent<Galaga_PlayerMovement>().ActivateRapidFire(); // Gets player's script and activates RF method when hit by player
 
-            else if(isPenaltyItem)
-            {
-                // Penalty Item subtracts 300 points
-                player.GetComponent<Galaga_PlayerMovement>().scoreVal -= 300;
+            // Explosion animation for power up
+            GameObject temp = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(temp, 1.0f);
 
+<<<<<<< HEAD
                 // Update the score display
                 player.GetComponent<Galaga_PlayerMovement>().scoreText.text = "Score: " + player.GetComponent<Galaga_PlayerMovement>().scoreVal;
 
@@ -146,6 +130,8 @@ public class Galaga_FlyingItem : MonoBehaviour
             }
 
             // Destroy flying item
+=======
+>>>>>>> parent of 374544d (PowerUp, Penalty Item, and Heart/Add Life Item + Polishes)
             Destroy(gameObject);
         }
     }

@@ -1,7 +1,6 @@
 using UnityEngine; //Using Unity's Programming tools
 using UnityEngine.UI; //Using Unity's UI tools
 using TMPro;
-using UnityEngine.SocialPlatforms.Impl;
 
 // PlayerMovement Class and Functions
 public class Galaga_PlayerMovement : MonoBehaviour
@@ -16,13 +15,6 @@ public class Galaga_PlayerMovement : MonoBehaviour
     // Score Change Variables (so text doesn't stay up)
     private float scoreChangeTimer = 0f;
     private float scoreChangeDuration = 1.0f;
-
-    // Score Change Text Varibles
-    private float normalScoreSize = 30f;
-    private float penaltyScoreSize = 45f;
-    public Color normalScoreColor = Color.yellow;
-    public Color penaltyScoreColor = Color.red;
-
 
     // Rapid Fire Variables
     private bool rapidFire = false; // Stores whether Rapid Fire is currently active.
@@ -195,33 +187,16 @@ public class Galaga_PlayerMovement : MonoBehaviour
         if(points >= 0) // Only checks/shows non-negative numbers
         {
             scoreChange.text = "+" + points;
-            scoreChange.fontSize = normalScoreSize;
-            scoreChange.color = normalScoreColor;
         }
+
         else // Handles negative numbers
         {
             scoreChange.text = "" + points;
-            scoreChange.fontSize = penaltyScoreSize;
-            scoreChange.color = penaltyScoreColor;
         }
-        
-        // Reset the timer so the score change stays visible
+
         scoreChangeTimer = scoreChangeDuration;
     }
 
-    // Adds one life to the player
-    public void AddLife()
-    {
-        // Check if the player has room for another life
-        if(livesremaining < lives.Length)
-        {
-            // Add one life
-            livesremaining += 1;
-
-            // Turn the corresponding heart UI back on
-            lives[livesremaining -1].enabled = true;
-        }
-    }
 
     // Activates Rapid Fire
     public void ActivateRapidFire() // actually turns power-up on
@@ -250,14 +225,6 @@ public class Galaga_PlayerMovement : MonoBehaviour
             if(livesremaining <= 0)
             {
                 livesremaining = 0;
-
-                // Turn off Rapid Fire and its UI when the player loses
-                rapidFire = false;
-                rapidFireTimer = 0;
-                rapidFireText.gameObject.SetActive(false);
-                rapidFireInstructions.gameObject.SetActive(false);
-                rapidFireDeactivatedText.gameObject.SetActive(false);
-
                 gameManager.GameOverMethod();
             }
 
