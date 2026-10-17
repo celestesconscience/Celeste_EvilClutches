@@ -6,6 +6,8 @@ using UnityEngine.SocialPlatforms.Impl;
 // PlayerMovement Class and Functions
 public class Galaga_PlayerMovement : MonoBehaviour
 {
+    // Audio
+    public AudioClip lifeLostSound; 
 
     // Variables
     public float speed = 5; // <-- Speed of the player's movement
@@ -242,6 +244,8 @@ public class Galaga_PlayerMovement : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             livesremaining -= 1;
+
+            AudioSource.PlayClipAtPoint(lifeLostSound, transform.position, 2f);
 
             if(livesremaining <= 0)
             {

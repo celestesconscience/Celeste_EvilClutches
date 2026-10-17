@@ -8,6 +8,9 @@ public class Galaga_FlyingItem : MonoBehaviour
     public GameObject explosion;
     public GameObject healing;
 
+    // Audio
+    public AudioClip penaltySound;
+
     // Spawner Reference
     private Galaga_FlyingItemSpawner spawner;
 
@@ -81,23 +84,15 @@ public class Galaga_FlyingItem : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("PlayerBullet") || collision.gameObject.CompareTag("GalagaPlayer")) // Check if it was the player or their bullet
         {
-            // Destroy the player bullet if the item was hit by a bullet
             if(collision.gameObject.CompareTag("PlayerBullet"))
             {
                 // Destroys player bullet
                 Destroy(collision.gameObject);
 
-                // If item is a Heart, destroy it without giving the player a life
+                // If item is a Heart, ignore the bullet
                 if(isHeart)
                 {
-                    // Play explosion animation when the Heart is shot
-                    GameObject temp = Instantiate(explosion, transform.position, Quaternion.identity);
-                    Destroy(temp, 1.0f);
-
-                    // Destroy the Heart
-                    Destroy(gameObject);
-
-                    return; // So hitting the heart with a bullet doesn't add a life/move onto .AddLife()  
+                    return; // Stops here so the Heart is not destroyed or collected
                 }
             }
 
@@ -118,6 +113,9 @@ public class Galaga_FlyingItem : MonoBehaviour
 
                 // Show -300 under the score
                 player.GetComponent<Galaga_PlayerMovement>().ShowScoreChange(-300);
+
+                // Play penalty sound
+                AudioSource.PlayClipAtPoint(penaltySound, transform.position, 2f);
             }
 
             else

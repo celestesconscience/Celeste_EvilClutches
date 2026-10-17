@@ -2637,6 +2637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7ab38d571ed49fc91c13e690aaa3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GalagaPlayerMovement
+  lifeLostSound: {fileID: 8300000, guid: 881737195223b4b5a81135dbae5c0840, type: 3}
   speed: 4
   scoreVal: 0
   normalScoreColor: {r: 1, g: 0.84313726, b: 0, a: 1}
@@ -4121,7 +4122,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 890, y: 80}
+  m_SizeDelta: {x: 950, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1344873329
 MonoBehaviour:
@@ -4143,7 +4144,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RAPID FIRE DEACTIVATED
+  m_text: RAPID FIRE DEACTIVATED!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
