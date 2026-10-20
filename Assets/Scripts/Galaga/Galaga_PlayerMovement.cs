@@ -44,7 +44,7 @@ public class Galaga_PlayerMovement : MonoBehaviour
     public TextMeshProUGUI scoreText; // <-- Reference to the TextMeshProUGUI component that displays the player's score
     public TextMeshProUGUI rapidFireText;
     public TextMeshProUGUI rapidFireDeactivatedText;
-    public TextMeshProUGUI rapidFireInstructions;
+    public GameObject rapidFireInstructions;
     public TextMeshProUGUI scoreChange;
 
     // Player Lives UI Elements
@@ -59,6 +59,8 @@ public class Galaga_PlayerMovement : MonoBehaviour
 
     // Audio
     public AudioClip lifeLostSound;
+    public AudioClip rapidFireActivateSound;
+    public AudioClip rapidFireDeactivatedSound;
 
     void Start()
     {
@@ -121,6 +123,8 @@ public class Galaga_PlayerMovement : MonoBehaviour
             {
                 rapidFire = false; // Turn rapid fire off
                 rapidFireTimer = 0; // Timer set at 0 so can't go to negatives
+
+                AudioSource.PlayClipAtPoint(rapidFireDeactivatedSound, transform.position, 2f);
 
                 spawner.ResetPowerUp(); // Starts timer/respawn logic 
 
@@ -234,6 +238,8 @@ public class Galaga_PlayerMovement : MonoBehaviour
         // Show Power Up Text
         rapidFireText.gameObject.SetActive(true);
         rapidFireInstructions.gameObject.SetActive(true);
+
+        AudioSource.PlayClipAtPoint(rapidFireActivateSound, transform.position, 2f);
 
         print("Rapid Fire Activated!"); // For debugging
     }
