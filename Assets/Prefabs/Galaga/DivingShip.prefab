@@ -203,6 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948ff88d1b3db42fca1b416369a2a6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Galaga_DivingShip
-  speed: 6
+  speed: 8
   points: 200
   explosion: {fileID: 6677845051465136476, guid: 6884418d1d49b46c59d5c9aab6c14943, type: 3}
