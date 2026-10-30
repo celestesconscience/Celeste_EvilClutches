@@ -267,7 +267,7 @@ MonoBehaviour:
   leftSpawner: {fileID: 96474426}
   rightSpawner: {fileID: 598218217}
   itemTimer: 0
-  itemWait: 10
+  itemWait: 15
   powerUpActive: 0
 --- !u!4 &35490999
 Transform:
